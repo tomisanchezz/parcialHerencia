@@ -49,5 +49,21 @@ if($variable2 == null){
     echo "Se pudo ingresar su partido"."\n";
 }
 
+$variable3=$torneo->ingresarPartido($objE11, $objE11, '2024-05-23', 'basquetbol');
+if($variable3 == null){
+    echo "No se pudo ingresar partido"."\n";
+}else{
+    echo "Se pudo ingresar su partido"."\n";
+}
+
+$ganadorBasquet= $torneo->darGanadores("basquet");
+$ganadorFutbol= $torneo->darGanadores("futbol");
+
+$torneo->calcularPremioPartido($variable1);
+$torneo->calcularPremioPartido($variable2);
+$torneo->calcularPremioPartido($variable3);
+
+
+
 
 ?>

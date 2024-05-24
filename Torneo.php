@@ -42,7 +42,7 @@ class Torneo{
                 array_push($colecPartidos,$partido);
             }
         }elseif($tipoPartido == "basquetbol"){
-            if($cantJugadores1 == $cantJugadores2){
+            if($cantJugadores1 == $cantJugadores2 && $OBJEquipo1 != $OBJEquipo2){
                 $idPartido= $idPartido +1;
                 $partido = new PartidoBasq($idPartido,$fecha,$OBJEquipo1,0,$OBJEquipo2,0,0);
                 array_push($colecPartidos,$partido);

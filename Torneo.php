@@ -1,7 +1,7 @@
 <?php
-include_once "PartidoBasq.php";
-include_once "PartidoFutbol.php";
-include_once "Equipo.php";
+include_once ("PartidoBasq.php");
+include_once ("PartidoFutbol.php");
+include_once ("Equipo.php");
 
 class Torneo{
 
@@ -14,7 +14,7 @@ class Torneo{
         $this->importePremio= $importePremioC;
     }
     public function getColecPartidos(){
-        return $this->getColecPartidos();
+        return $this->coleccionPartidos;
     }
     public function setColecPartidos($colecPArtidos){
         $this->coleccionPartidos = $colecPArtidos;
@@ -28,11 +28,12 @@ class Torneo{
      *  El método debe crear y retornar la instancia de la clase Partido que corresponda y almacenarla en la colección de partidos del Torneo. Se debe chequear que los 2 equipos tengan la misma categoría e igual cantidad de jugadores, caso contrario no podrá ser registrado ese partido en el torneo.  */
     public function ingresarPartido($OBJEquipo1,$OBJEquipo2, $fecha, $tipoPartido){
         $cantJugadores1=$OBJEquipo1->getCantJugadores();
-        $tipoCategoria1= $OBJEquipo1->getObjCategoria();
+        $tipoCategoria1= $OBJEquipo1->getObjCategoria()->getDescripcion();
         $cantJugadores2= $OBJEquipo2->getCantJugadores();
-        $tipoCategoria2= $OBJEquipo2->getObjCategoria();
+        $tipoCategoria2= $OBJEquipo2->getObjCategoria()->getDescripcion();
         $colecPartidos= $this->getColecPartidos();
         $idPartido= 0 ;
+        $partido=null;
         if($tipoPartido == "futbol"){
            
             if($tipoCategoria1 == $tipoCategoria2 && $cantJugadores1 == $cantJugadores2){
@@ -40,7 +41,7 @@ class Torneo{
                 $partido = new PartidoFutbol($idPartido,$fecha,$OBJEquipo1,0,$OBJEquipo2,0,$tipoCategoria1);
                 array_push($colecPartidos,$partido);
             }
-        }elseif($tipoPartido == "basquet"){
+        }elseif($tipoPartido == "basquetbol"){
             if($cantJugadores1 == $cantJugadores2){
                 $idPartido= $idPartido +1;
                 $partido = new PartidoBasq($idPartido,$fecha,$OBJEquipo1,0,$OBJEquipo2,0,0);

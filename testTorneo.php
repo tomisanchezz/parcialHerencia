@@ -1,5 +1,5 @@
 <?php
-include "Torneo.php";
+include ("Torneo.php");
 
 $catMayores = neW Categoria(1,'Mayores');
 $catJuveniles = neW Categoria(2,'juveniles');
@@ -23,6 +23,31 @@ $objE10 = neW Equipo("Equipo Diez", "Cap.Diez",9,$catMenores);
 $objE11 = neW Equipo("Equipo Once", "Cap.Once",11,$catMayores);
 $objE12 = neW Equipo("Equipo Doce", "Cap.Doce",11,$catMayores);
 
+$torneo = new Torneo(100.000);
+
+$parPartidoBasq1 = new PartidoBasq(11 , "2024-05-05", $objE7, 80 , $objE8 , 120 , 7);
+$parPartidoBasq2 = new PartidoBasq(12, "2024-05-0" , $objE10 , 81 , $objE10 , 110 , 8); 
+$parPartidoBasq3 = new PartidoBasq(13 , "2024-05-07" , $objE11 , 115 , $objE12 , 85 , 9);
+
+$partidoFutbol1 = new PartidoFutbol(14 , "2024-05-07" , $objE1 , 3 , $objE2 , 2);
+$partidoFutbol2 = new PartidoFutbol(15 , "2024-05-08" , $objE3 , 0 , $objE4 , 1);
+$partidoFutbol3 = new PartidoFutbol(16 , "2024-05-09" , $objE5 , 2 , $objE6 , 3);
+
+
+$varible1= $torneo -> ingresarPartido($objE5, $objE11, '2024-05-23', "Futbol");
+if($varible1 == null){
+    echo "No se pudo ingresar partido"."\n";
+}else{
+    echo "Se pudo ingresar su partido"."\n";
+}
+
+$variable2= $torneo->ingresarPartido($objE9, $objE10, '2024-05-25', 'basquetbol');
+
+if($variable2 == null){
+    echo "No se pudo ingresar partido"."\n";
+}else{
+    echo "Se pudo ingresar su partido"."\n";
+}
 
 
 ?>

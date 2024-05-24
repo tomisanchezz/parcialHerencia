@@ -1,4 +1,5 @@
 <?php
+include_once "Categoria.php";
 class Equipo{
 	private $nombre;
 	private $capitan;

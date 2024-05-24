@@ -1,5 +1,5 @@
 <?php
-
+include_once "Partido.php";
 class PartidoBasq extends Partido{
 
     private $cantInfracciones;
